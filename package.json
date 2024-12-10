@@ -1,0 +1,37 @@
+{
+  "author": "A. J. Wray",
+  "bugs": {
+    "url": "https://github.com/timzaz/http-agent/issues"
+  },
+  "dependencies": {
+    "superagent": "^10.1.1"
+  },
+  "description": "Wrapper functions around superagent",
+  "devDependencies": {
+    "@types/superagent": "^8.1.9",
+    "typescript": "^5.7.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/timzaz/http-agent#readme",
+  "keywords": [
+    "superagent",
+    "fetch",
+    "api"
+  ],
+  "license": "GPL-3.0-or-later",
+  "main": "dist/index.js",
+  "name": "@timzaz-ajw/http-agent",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timzaz/http-agent.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
