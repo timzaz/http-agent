@@ -8,10 +8,14 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -22,20 +26,18 @@ jobs:
 
       - name: Git config
         run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
       
       - name: Install dependencies
         run: npm ci
       
-      - name: Version bump
+      - name: Version bump and push
         run: |
-          if [ "$(git log -1 --pretty=%B)" = "chore: release" ]; then
-            echo "Skipping version bump for release commit"
-            exit 0
+          if [[ "$(git log -1 --pretty=%B)" != *"chore: release"* ]]; then
+            npm version patch -m "chore: release %s"
+            git push origin main --follow-tags
           fi
-          npm version patch -m "chore: release %s"
-          git push --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
