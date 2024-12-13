@@ -40,9 +40,15 @@
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "*": ["dist/*"],
-      "interfaces": ["dist/interfaces.d.ts"],
-      "utils": ["dist/utils.d.ts"]
+      "*": [
+        "dist/*"
+      ],
+      "interfaces": [
+        "dist/interfaces.d.ts"
+      ],
+      "utils": [
+        "dist/utils.d.ts"
+      ]
     }
   },
   "repository": {
@@ -56,5 +62,5 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "version": "git add -A"
   },
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
