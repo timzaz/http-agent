@@ -46,10 +46,16 @@
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "*": ["dist/*"],
-      "interfaces": ["dist/interfaces.d.ts"],
-      "utils": ["dist/utils.d.ts"]
+      "*": [
+        "dist/*"
+      ],
+      "interfaces": [
+        "dist/interfaces.d.ts"
+      ],
+      "utils": [
+        "dist/utils.d.ts"
+      ]
     }
   },
-  "version": "1.0.3"
+  "version": "1.0.4"
 }
